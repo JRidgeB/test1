@@ -17,10 +17,10 @@ jobs:
     runs-on: windows-latest
 
     env:
-        Solution_Name: BlazorLabStarterCode.sln
-        Test_Project_Path: TestUnit1/TestUnit1.csproj # Adjust to your actual test project path
-        Wap_Project_Directory: UnitTestLab6          # Adjust as needed
-        Wap_Project_Path: UnitTestLab6/UnitTestLab6.wapproj # Update with the correct path to the WAP project
+        Solution_Name: ciLab.sln                        # Updated solution name
+        Test_Project_Path: TestUnit1/TestUnit1.csproj  # Adjust to your actual test project path
+        Wap_Project_Directory: UnitTestLab6           # Adjust as needed
+        Wap_Project_Path: UnitTestLab6/UnitTestLab6.wapproj # Update as needed
 
     steps:
       - name: Checkout code
