@@ -17,7 +17,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-        Solution_Name: Blazor Lab Starter Code.sln
+        Solution_Name: BlazorLabStarterCode.sln
         Test_Project_Path: TestUnit1/TestUnit1.csproj # Adjust to your actual test project path
         Wap_Project_Directory: UnitTestLab6          # Adjust as needed
         Wap_Project_Path: UnitTestLab6/UnitTestLab6.wapproj # Update with the correct path to the WAP project
