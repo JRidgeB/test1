@@ -1,25 +1,41 @@
-name: .NET Core Desktop
+name: .NET Core Desktop Workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: windows-latest
 
     env:
-        Solution_Name: Blazor Lab Starter Code.sln                         # Replace with your solution name
-        Test_Project_Path: MyWpfApp.Tests/MyWpfApp.Tests.csproj  # Replace with the path to your test project
-        Wap_Project_Directory: MyWpfApp.Package             # Replace with the Wap project directory relative to the solution
-        Wap_Project_Path: MyWpfApp.Package/MyWpfApp.Package.wapproj  # Replace with the path to your Wap project
+        Solution_Name: Blazor Lab Starter Code.sln
+        Test_Project_Path: TestUnit1/TestUnit1.csproj # Adjust to your actual test project path
+        Wap_Project_Directory: UnitTestLab6          # Adjust as needed
+        Wap_Project_Path: UnitTestLab6/UnitTestLab6.wapproj # Update with the correct path to the WAP project
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x' # Replace with your required version
+
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.Solution_Name }}
+
+      - name: Build solution
+        run: dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} --no-restore
+
+      - name: Run tests
+        run: dotnet test ${{ env.Test_Project_Path }} --configuration ${{ matrix.configuration }} --no-build --verbosity normal
