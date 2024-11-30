@@ -18,7 +18,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-        Solution_Name: MyWpfApp.sln                         # Replace with your solution name
+        Solution_Name: Blazor Lab Starter Code.sln                         # Replace with your solution name
         Test_Project_Path: MyWpfApp.Tests/MyWpfApp.Tests.csproj  # Replace with the path to your test project
         Wap_Project_Directory: MyWpfApp.Package             # Replace with the Wap project directory relative to the solution
         Wap_Project_Path: MyWpfApp.Package/MyWpfApp.Package.wapproj  # Replace with the path to your Wap project
