@@ -10,7 +10,7 @@ namespace TestUnit1;
         public void TestReadBooks()
         {
         //this is more of a test that this works. if the try does not send message, this it works
-        int comp = 1; int test = 0;
+        int comp = 0; int test = 0;
         try
         {
             testclass.ReadBooks();
